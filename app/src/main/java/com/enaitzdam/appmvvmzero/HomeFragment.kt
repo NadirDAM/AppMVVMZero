@@ -23,10 +23,9 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater)
 
-        binding.viewContainer.setOnClickListener {
-            viewModel.randomQuote()
-            binding.tvQuote.text = viewModel.frase
-            binding.tvAuthor.text = viewModel.autor
+        binding.button.setOnClickListener {
+            val valors = QuoteProvider.quotes.filter { it.edat.toString() == binding.editTextValorEdat.text.toString() }
+            binding.textViewNom.text = valors.size.toString()
         }
 
 
